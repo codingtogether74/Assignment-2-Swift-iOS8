@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hQO-sd-c6R">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
+    </dependencies>
+    <scenes>
+        <!--Card Game View Controller - Playing Card-->
+        <scene sceneID="gJ3-Fx-hxE">
+            <objects>
+                <viewController id="hQO-sd-c6R" customClass="CardGameViewController" customModule="Matchismo2Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="z93-lx-JqU"/>
+                        <viewControllerLayoutGuide type="bottom" id="4VD-2Z-4h0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DMG-bN-1Ek">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OpH-yg-Op7" customClass="PadView" customModule="Matchismo2Swift" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="480" height="423"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoa-eU-gSE">
+                                <rect key="frame" x="410" y="451" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips:0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1GG-IU-fUg">
+                                <rect key="frame" x="20" y="451" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OpH-yg-Op7" secondAttribute="trailing" id="HXL-el-bzY"/>
+                            <constraint firstItem="4VD-2Z-4h0" firstAttribute="top" secondItem="uoa-eU-gSE" secondAttribute="bottom" constant="20" symbolic="YES" id="REl-xT-xqF"/>
+                            <constraint firstAttribute="trailing" secondItem="uoa-eU-gSE" secondAttribute="trailing" constant="20" symbolic="YES" id="Sbk-iL-Wm2"/>
+                            <constraint firstItem="1GG-IU-fUg" firstAttribute="top" secondItem="OpH-yg-Op7" secondAttribute="bottom" constant="8" symbolic="YES" id="TeD-ji-9Gy"/>
+                            <constraint firstItem="OpH-yg-Op7" firstAttribute="leading" secondItem="DMG-bN-1Ek" secondAttribute="leading" id="eoO-EH-2u1"/>
+                            <constraint firstItem="uoa-eU-gSE" firstAttribute="top" secondItem="OpH-yg-Op7" secondAttribute="bottom" constant="8" symbolic="YES" id="faX-Xo-V7t"/>
+                            <constraint firstItem="OpH-yg-Op7" firstAttribute="top" secondItem="z93-lx-JqU" secondAttribute="bottom" id="fdi-bL-PC4"/>
+                            <constraint firstItem="4VD-2Z-4h0" firstAttribute="top" secondItem="1GG-IU-fUg" secondAttribute="bottom" constant="20" symbolic="YES" id="ggH-Nm-U7A"/>
+                            <constraint firstItem="1GG-IU-fUg" firstAttribute="leading" secondItem="DMG-bN-1Ek" secondAttribute="leading" constant="20" symbolic="YES" id="gzP-fT-Z7k"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Playing Card" id="pwF-UG-6Wb"/>
+                    <connections>
+                        <outlet property="padView" destination="OpH-yg-Op7" id="qHH-Jl-Hte"/>
+                        <outlet property="resultsLabel" destination="1GG-IU-fUg" id="GOM-KA-Khg"/>
+                        <outlet property="scoreLabel" destination="uoa-eU-gSE" id="0kQ-7l-DEc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7BK-Ss-zNw" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="831" y="141"/>
+        </scene>
+    </scenes>
+</document>
