@@ -62,7 +62,7 @@ class CardGameViewController: UIViewController {
         var text:String = " ";
         if self.game!.matchedCards.count > 0
         {
-            text = text + componentsJoinedByString(self.game!.matchedCards,joinedString:" ")
+            text = text + joinComponentsByString(self.game!.matchedCards,joinedString:" ")
             if self.game!.matchedCards.count == self.numberOfMatches
             {
                 if (self.game!.lastFlipPoints<0) {
@@ -75,11 +75,15 @@ class CardGameViewController: UIViewController {
         self.resultsLabel.text = text;
     }
     
-    func componentsJoinedByString(cards:Card [], joinedString: String) -> String {
-        var str :String = ""
-        for card:Card in cards {
-            str += card.contents + joinedString
+    func joinComponentsByString(cards:Card [], joinedString: String) -> String {
+        var str = ""
+        if cards.count > 1 {
+            let contentsArray = cards.map { ($0 as Card).contents }
+            str = join(joinedString,contentsArray)
+        } else {
+            str = (cards[0] as Card).contents
         }
+     
         return str
     }
     
@@ -149,7 +153,7 @@ class CardGameViewController: UIViewController {
             
             newButton.setTitle(nil, forState: .Normal)
             newButton.titleLabel.font = UIFont.systemFontOfSize(24)
-            newButton.setTitleColor(UIColor(red: 10.0/255.0, green: 10.0/255.0, blue: 10.0/255.0, alpha: 1.0), forState: .Normal)
+            newButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
             newButton.frame = frame1
             newButton.setBackgroundImage(UIImage(named:"cardback"), forState: .Normal)
             newButton.addTarget(self, action: "touchCardButton:", forControlEvents: .TouchUpInside)

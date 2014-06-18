@@ -268,5 +268,5 @@ var padSize = CGSizeMake(400, 400)
 var grid1:Grid =  Grid (cellAspectRatio: 60.0/90.0, size: padSize , minimumNumberOfCells: 2)
 
 var comp = ["One","Two", "Three"]
-var res:String = comp.componentsJoinedByString(" ")
+var res:String = join(" ", comp)
 
