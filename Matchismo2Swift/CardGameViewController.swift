@@ -83,7 +83,7 @@ class CardGameViewController: UIViewController {
         } else {
             str = (cards[0] as Card).contents
         }
-     
+        
         return str
     }
     
