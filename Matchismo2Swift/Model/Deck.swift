@@ -30,7 +30,7 @@ class Deck {
             
             //           let index = Int(arc4random_uniform(UInt32(self.cards.count)))
             
-            randomCard = self.cards[index] as? Card
+            randomCard = self.cards[index] as Card
             cards.removeAtIndex(index)
         }
         return randomCard

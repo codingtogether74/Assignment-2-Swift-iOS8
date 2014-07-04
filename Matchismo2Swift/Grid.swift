@@ -45,7 +45,7 @@ class Grid {
     }
     var minimumNumberOfCells:Int {
     didSet{
-        if oldValue !== minimumNumberOfCells {
+        if oldValue != minimumNumberOfCells {
             resolved = false
         }
     }
@@ -55,7 +55,7 @@ class Grid {
     
     var minCellWidth:CGFloat = 0{
     didSet{
-        if oldValue !== minCellWidth {
+        if oldValue != minCellWidth {
             resolved = false
         }
     }
@@ -63,7 +63,7 @@ class Grid {
     
     var maxCellWidth:CGFloat  = 0 {    // ignored if less than minCellWidth
     didSet{
-        if oldValue !== maxCellWidth {
+        if oldValue != maxCellWidth {
             resolved = false
         }
     }
@@ -71,7 +71,7 @@ class Grid {
     
     var minCellHeight:CGFloat = 0 {
     didSet{
-        if oldValue !== minCellHeight {
+        if oldValue != minCellHeight {
             resolved = false
         }
     }
@@ -79,7 +79,7 @@ class Grid {
     
     var maxCellHeight:CGFloat = 0 {   // ignored if less than minCellHeight
     didSet{
-        if oldValue !== maxCellHeight {
+        if oldValue != maxCellHeight {
             resolved = false
         }
     }

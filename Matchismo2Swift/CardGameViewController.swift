@@ -28,7 +28,6 @@ class CardGameViewController: UIViewController {
     init(coder aDecoder: NSCoder!) {
         cardButtons = UIButton[] ()
         super.init(coder: aDecoder)
-        
     }
     
     func createDeck() ->Deck {
