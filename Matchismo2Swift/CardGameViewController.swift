@@ -9,13 +9,18 @@
 import UIKit
 
 class CardGameViewController: UIViewController {
+    
     @IBOutlet var padView : UIView
     @IBOutlet var resultsLabel : UILabel
     @IBOutlet var scoreLabel : UILabel
+    
     var cardButtons:UIButton[]
     var flipCount:Int = 0
+    
     let DEFAULT_FACE_CARD_SCALE_FACTOR:Double = 0.95
+    
     @lazy var deck: Deck = createDeck(self)()
+    
     var game:CardMatchingGame? = nil
     var cardCount:Int = 16
     var numberOfMatches:Int = 2
