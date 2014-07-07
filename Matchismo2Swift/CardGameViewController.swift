@@ -7,6 +7,11 @@
 //
 
 import UIKit
+// for use find (...) for UIButtons - look http://stackoverflow.com/questions/24010700/how-do-i-do-indexofobject-or-a-proper-containsobject/24400073#24400073
+func == (v1:UIButton, v2:UIButton) -> Bool {
+    return v1.isEqual(v2)
+}
+extension UIButton : Equatable {}
 
 class CardGameViewController: UIViewController {
     
@@ -34,9 +39,13 @@ class CardGameViewController: UIViewController {
         return PlayingCardDeck()
     }
     
+    
+
     @IBAction func touchCardButton(sender : UIButton) {
         
-        var cardIndex:Int? = self.cardButtons.indexOfElement (sender)
+        var cardIndex:Int? = find(self.cardButtons,sender)
+//        var cardIndex:Int? = self.cardButtons.indexOfElement (sender)
+
         self.game!.chooseCard(cardIndex!)
         self.flipCount++;
         updateUI()

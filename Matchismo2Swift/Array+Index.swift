@@ -8,7 +8,7 @@
 
 extension Array {
     func indexOfElement <T:Equatable>  (item:T) -> Int? {
-        for i in 0..self.count {
+        for i:Int in 0..self.count {
             if ((self[i] as? T) == item )
             {
                 return i
