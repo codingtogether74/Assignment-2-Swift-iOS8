@@ -7,11 +7,7 @@
 //
 
 import UIKit
-// for use find (...) for UIButtons - look http://stackoverflow.com/questions/24010700/how-do-i-do-indexofobject-or-a-proper-containsobject/24400073#24400073
-func == (v1:UIButton, v2:UIButton) -> Bool {
-    return v1.isEqual(v2)
-}
-extension UIButton : Equatable {}
+
 
 class CardGameViewController: UIViewController {
     
@@ -19,7 +15,7 @@ class CardGameViewController: UIViewController {
     @IBOutlet var resultsLabel : UILabel
     @IBOutlet var scoreLabel : UILabel
     
-    var cardButtons:UIButton[]
+    var cardButtons:[UIButton]
     var flipCount:Int = 0
     
     let DEFAULT_FACE_CARD_SCALE_FACTOR:Double = 0.95
@@ -31,7 +27,7 @@ class CardGameViewController: UIViewController {
     var numberOfMatches:Int = 2
     
     init(coder aDecoder: NSCoder!) {
-        cardButtons = UIButton[] ()
+        cardButtons = [UIButton] ()
         super.init(coder: aDecoder)
     }
     
@@ -43,8 +39,7 @@ class CardGameViewController: UIViewController {
 
     @IBAction func touchCardButton(sender : UIButton) {
         
-        var cardIndex:Int? = find(self.cardButtons,sender)
-//        var cardIndex:Int? = self.cardButtons.indexOfElement (sender)
+       var cardIndex:Int? = find(self.cardButtons,sender)
 
         self.game!.chooseCard(cardIndex!)
         self.flipCount++;
@@ -54,7 +49,9 @@ class CardGameViewController: UIViewController {
     func updateUI ()
     {
         for  cardButton:UIButton in cardButtons {
-            var cardIndex:Int? = self.cardButtons.indexOfElement (cardButton)
+            var cardIndex:Int? = find(self.cardButtons,cardButton)
+
+//            var cardIndex:Int? = self.cardButtons.indexOfElement (cardButton)
             if cardIndex {
                 var card:Card? = self.game!.cardAtIndex(cardIndex!)
                 //            print(card!.contents)
@@ -88,7 +85,7 @@ class CardGameViewController: UIViewController {
         self.resultsLabel.text = text;
     }
     
-    func joinComponentsByString(cards:Card [], joinedString: String) -> String {
+    func joinComponentsByString(cards:[Card ], joinedString: String) -> String {
         var str = ""
         if cards.count > 1 {
             let contentsArray = cards.map { ($0 as Card).contents }

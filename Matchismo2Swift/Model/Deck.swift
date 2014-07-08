@@ -11,14 +11,14 @@ import Foundation
 // A class representing deck.
 class Deck {
     
-    var cards: Card[]
+    var cards: [Card]
     
     func addCard (card: Card){
         cards += card
     }
     
     init(){
-        self.cards = Card[]()
+        self.cards = [Card]()
     }
     
     func drawRandomCard () -> Card?{

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hQO-sd-c6R">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hQO-sd-c6R">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
     </dependencies>
     <scenes>
-        <!--Card Game View Controller - Playing Card-->
+        <!--Playing Card-->
         <scene sceneID="gJ3-Fx-hxE">
             <objects>
                 <viewController id="hQO-sd-c6R" customClass="CardGameViewController" customModule="Matchismo2Swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,7 +45,6 @@
                             <constraint firstItem="4VD-2Z-4h0" firstAttribute="top" secondItem="1GG-IU-fUg" secondAttribute="bottom" constant="20" symbolic="YES" id="ggH-Nm-U7A"/>
                             <constraint firstItem="1GG-IU-fUg" firstAttribute="leading" secondItem="DMG-bN-1Ek" secondAttribute="leading" constant="20" symbolic="YES" id="gzP-fT-Z7k"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Playing Card" id="pwF-UG-6Wb"/>
                     <connections>

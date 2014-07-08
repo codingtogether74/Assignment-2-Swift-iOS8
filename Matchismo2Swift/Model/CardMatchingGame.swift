@@ -10,19 +10,19 @@ import UIKit
 
 class CardMatchingGame {
     var score:Int = 0
-    var cards:Card[]
-    var faceUpCards:Card[]
+    var cards:[Card]
+    var faceUpCards:[Card]
     var lastFlipPoints:Int = 0
     
     var numberOfMatches:Int = 2
     
-    var matchedCards:Card[]
+    var matchedCards:[Card]
     
     init (cardCount:Int, deck:Deck ){
-        self.cards = Card[]()
-        self.faceUpCards = Card[]()
-        self.matchedCards = Card[]()
-        for i in 0..cardCount {
+        self.cards = [Card]()
+        self.faceUpCards = [Card]()
+        self.matchedCards = [Card]()
+        for i in 0..<cardCount {
             var card:Card? = deck.drawRandomCard()
             if card {
                 cards += card!
@@ -42,7 +42,7 @@ class CardMatchingGame {
     func chooseCard(atIndex:Int)
     {
         var card:Card? = cardAtIndex(atIndex)
-        self.faceUpCards = Card[]()
+        self.faceUpCards = [Card]()
         if card {
             if (!card!.isMatched) {
                 if (card!.isChosen) {
@@ -70,14 +70,14 @@ class CardMatchingGame {
                                         if faceUpCard !== card {faceUpCard.isChosen = false}
                                     }
                                 }
-                                self.matchedCards = self.faceUpCards.copy()
+                                self.matchedCards = self.faceUpCards
                                 break;
                             }
                             // decision on match
                         }
                     }
                     self.score += (self.lastFlipPoints - COST_TO_CHOOSE)
-                    self.matchedCards = self.faceUpCards.copy()
+                    self.matchedCards = self.faceUpCards
                     card!.isChosen = true
                 }
             }

@@ -43,13 +43,13 @@ class PlayingCard: Card {
         super.contents = PlayingCard.rankStrings()[self.rank]+self.suit
     }
     
-    class func rankStrings() -> String[] {
+    class func rankStrings() -> [String] {
         
         return  ["?", "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
         
     }
     
-    class func validSuits() -> String[] {
+    class func validSuits() -> [String] {
         return ["♥️", "♦️", "♠️", "♣️"]
     }
     
@@ -58,7 +58,7 @@ class PlayingCard: Card {
         return PlayingCard.rankStrings().count-1;
     }
     
-    override func match(otherCards: Card[]) -> Int {
+    override func match(otherCards: [Card]) -> Int {
         var score = 0
         var numMatches = 0
         

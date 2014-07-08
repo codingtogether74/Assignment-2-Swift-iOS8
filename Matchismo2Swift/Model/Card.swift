@@ -18,7 +18,7 @@ class Card{
         contents = ""
     }
     
-    func match(otherCards: Card[]) -> Int {
+    func match(otherCards: [Card]) -> Int {
         var score = 0
         for card in otherCards {
             if self.contents == card.contents {

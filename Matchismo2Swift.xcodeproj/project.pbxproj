@@ -19,7 +19,6 @@
 		E4A5FDAC194C9BFE00A76465 /* CardMatchingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A5FDAB194C9BFE00A76465 /* CardMatchingGame.swift */; };
 		E4A5FDB0194D813C00A76465 /* PadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A5FDAF194D813C00A76465 /* PadView.swift */; };
 		E4E27905194DFEE00047647C /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E27904194DFEE00047647C /* Grid.swift */; };
-		E4E27907194DFF450047647C /* Array+Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E27906194DFF450047647C /* Array+Index.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +49,6 @@
 		E4A5FDAF194D813C00A76465 /* PadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PadView.swift; sourceTree = "<group>"; };
 		E4A5FDB3194DAF8C00A76465 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		E4E27904194DFEE00047647C /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
-		E4E27906194DFF450047647C /* Array+Index.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Index.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +94,6 @@
 				E4A5FD9C194C845900A76465 /* Model */,
 				E4A5FDAF194D813C00A76465 /* PadView.swift */,
 				E4E27904194DFEE00047647C /* Grid.swift */,
-				E4E27906194DFF450047647C /* Array+Index.swift */,
 				E4A5FDA9194C84B100A76465 /* CardGameViewController.swift */,
 				E4A5FD86194C800B00A76465 /* Images.xcassets */,
 				E4A5FD7D194C800B00A76465 /* Supporting Files */,
@@ -243,7 +240,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4A5FDA4194C845900A76465 /* Deck.swift in Sources */,
-				E4E27907194DFF450047647C /* Array+Index.swift in Sources */,
 				E4A5FDA3194C845900A76465 /* Card.swift in Sources */,
 				E4E27905194DFEE00047647C /* Grid.swift in Sources */,
 				E4A5FDA8194C845900A76465 /* PlayingCardDeck.swift in Sources */,
