@@ -14,9 +14,15 @@ class Card{
     var isChosen: Bool = false
     var isMatched:Bool = false
     
-    init() {
-        contents = ""
+    init(contents:String) {
+        self.contents = contents
     }
+    
+    func description() ->String
+    {
+        return self.contents;
+    }
+
     
     func match(otherCards: [Card]) -> Int {
         var score = 0

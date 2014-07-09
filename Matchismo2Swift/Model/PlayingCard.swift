@@ -30,7 +30,6 @@ class PlayingCard: Card {
     }
     
     init(suit s:String, rank r:Int) {
-        super.init()
         self.rank = 0
         if r <=  PlayingCard.maxRank() && r >= 0 {
             self.rank = r
@@ -40,6 +39,7 @@ class PlayingCard: Card {
         if  contains(PlayingCard.validSuits(), s) {
             self.suit = s
         }
+        super.init(contents: PlayingCard.rankStrings()[self.rank]+self.suit)
         super.contents = PlayingCard.rankStrings()[self.rank]+self.suit
     }
     
