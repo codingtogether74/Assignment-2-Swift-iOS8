@@ -25,30 +25,29 @@ import Cocoa
 //
 // Setting minimum cell widths and heights is completely optional ({min,max}Cell{Width,Height})
 
-
 class Grid {
     // required inputs (zero is not a valid value for any of these)
     
-    var size:CGSize  {                    // overall available space to put grid into
+    var size:CGSize {                    // overall available space to put grid into
     didSet{
-    if CGSizeEqualToSize (oldValue, size) {
-    resolved = false
+        if CGSizeEqualToSize (oldValue, size) {
+            resolved = false
+        }
     }
     }
-    }
-    var cellAspectRatio:CGFloat {       // width divided by height (of each cell)
+    var cellAspectRatio:CGFloat  {       // width divided by height (of each cell)
     didSet {
-    if abs(oldValue) !== abs(cellAspectRatio) {
-    resolved = false
-    }
-    
+        if abs(oldValue) !== abs(cellAspectRatio) {
+            resolved = false
+        }
+        
     }
     }
     var minimumNumberOfCells:Int {
     didSet{
-    if oldValue !== minimumNumberOfCells {
-    resolved = false
-    }
+        if oldValue != minimumNumberOfCells {
+            resolved = false
+        }
     }
     }
     
@@ -56,7 +55,7 @@ class Grid {
     
     var minCellWidth:CGFloat = 0{
     didSet{
-        if oldValue !== minCellWidth {
+        if oldValue != minCellWidth {
             resolved = false
         }
     }
@@ -64,7 +63,7 @@ class Grid {
     
     var maxCellWidth:CGFloat  = 0 {    // ignored if less than minCellWidth
     didSet{
-        if oldValue !== maxCellWidth {
+        if oldValue != maxCellWidth {
             resolved = false
         }
     }
@@ -72,7 +71,7 @@ class Grid {
     
     var minCellHeight:CGFloat = 0 {
     didSet{
-        if oldValue !== minCellHeight {
+        if oldValue != minCellHeight {
             resolved = false
         }
     }
@@ -80,7 +79,7 @@ class Grid {
     
     var maxCellHeight:CGFloat = 0 {   // ignored if less than minCellHeight
     didSet{
-        if oldValue !== maxCellHeight {
+        if oldValue != maxCellHeight {
             resolved = false
         }
     }
@@ -94,38 +93,11 @@ class Grid {
         return self.resolved
     }
     }
-    var cellSize:CGSize {       // will be made as large as possible
-    get{
-        validate()
-        return self.cellSize
-    }
-    set{
-        self.cellSize = newValue
-    }
+    var cellSize:CGSize  = CGSizeZero    // will be made as large as possible
     
-    }
+    var rowCount:Int = 0
     
-    var rowCount:Int{
-    get{
-        validate()
-        return self.rowCount
-    }
-    set{
-        self.rowCount = newValue
-    }
-    }
-    
-    
-    var columnCount:Int{
-    get{
-        validate()
-        return self.columnCount
-    }
-    set{
-        self.columnCount = newValue
-    }
-    }
-    
+    var columnCount:Int = 0
     
     //internal
     var resolved:Bool{
@@ -143,6 +115,9 @@ class Grid {
         self.minimumNumberOfCells = minimumNumberOfCells
         self.resolved = false
         self.unresolvable = false
+        if !self.inputsAreValid {
+            println (self.description())
+        }
         
     }
     
@@ -153,19 +128,19 @@ class Grid {
         if resolved {return}   // already valid, nothing to do
         if unresolvable {return}  // already tried to validate and couldn't
         
-        var overallWidth:Double = abs(self.size.width)
-        var overallHeight:Double = abs(self.size.height);
-        var aspectRatio:Double = abs(self.cellAspectRatio);
+        var overallWidth:CGFloat = abs(self.size.width)
+        var overallHeight:CGFloat = abs(self.size.height);
+        var aspectRatio:CGFloat = abs(self.cellAspectRatio);
         
-        if  (aspectRatio == 0) || (overallWidth == 0) || (overallHeight == 0) {
+        if  aspectRatio == 0.0 || overallWidth == 0.0 || overallHeight  == 0.0 {
             self.unresolvable = true
             return // invalid inputs
         }
         
-        var minCellWidth:Double = self.minCellWidth;
-        var minCellHeight:Double = self.minCellHeight;
-        var maxCellWidth :Double = self.maxCellWidth;
-        var maxCellHeight:Double = self.maxCellHeight;
+        var minCellWidth:CGFloat = self.minCellWidth;
+        var minCellHeight:CGFloat = self.minCellHeight;
+        var maxCellWidth :CGFloat = self.maxCellWidth;
+        var maxCellHeight:CGFloat = self.maxCellHeight;
         
         var flipped:Bool = false
         if (aspectRatio > 1) {
@@ -184,11 +159,11 @@ class Grid {
         
         var columnCount:Int = 1;
         while (!self.resolved && !self.unresolvable) {
-            var cellWidth:Double = overallWidth / Double(columnCount)
+            var cellWidth:CGFloat = overallWidth / CGFloat(columnCount)
             if cellWidth <= minCellWidth {
                 self.unresolvable = true
             } else {
-                var cellHeight:Double = cellWidth / aspectRatio;
+                var cellHeight:CGFloat = cellWidth / aspectRatio;
                 if cellHeight <= minCellHeight {
                     self.unresolvable = true
                 } else {
@@ -218,6 +193,21 @@ class Grid {
             self.cellSize = CGSizeZero;
         }
     }
+    
+    func rowCountGrid() ->Int {
+        validate()
+        return self.rowCount
+    }
+    
+    func columnCountGrid() ->Int {
+        validate()
+        return self.columnCount
+    }
+    func cellSizeGrid() ->CGSize {
+        validate()
+        return self.cellSize
+    }
+    
     
     func centerOfCell(row:Int, column:Int) ->CGPoint
     {
@@ -263,6 +253,7 @@ class Grid {
     }
     
 }
+
 var padSize = CGSizeMake(400, 400)
 
 var grid1:Grid =  Grid (cellAspectRatio: 60.0/90.0, size: padSize , minimumNumberOfCells: 2)

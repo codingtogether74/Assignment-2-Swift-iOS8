@@ -11,16 +11,16 @@ import UIKit
 
 class CardGameViewController: UIViewController {
     
-    @IBOutlet var padView : UIView
-    @IBOutlet var resultsLabel : UILabel
-    @IBOutlet var scoreLabel : UILabel
+    @IBOutlet var padView : UIView?
+    @IBOutlet var resultsLabel : UILabel?
+    @IBOutlet var scoreLabel : UILabel?
     
     var cardButtons:[UIButton]
     var flipCount:Int = 0
     
     let DEFAULT_FACE_CARD_SCALE_FACTOR:Double = 0.95
     
-    @lazy var deck: Deck = createDeck(self)()
+    lazy var deck: Deck = createDeck(self)()
     
     var game:CardMatchingGame? = nil
     var cardCount:Int = 16
@@ -62,7 +62,7 @@ class CardGameViewController: UIViewController {
                 }
             }
         }
-        self.scoreLabel.text = "Score: \(self.game!.score)"
+        self.scoreLabel!.text = "Score: \(self.game!.score)"
         updateFlipResult()
         
     }
@@ -82,7 +82,7 @@ class CardGameViewController: UIViewController {
                 }
             } else {text = textForSingleCard()}
         } else {text = "Play game!"}
-        self.resultsLabel.text = text;
+        self.resultsLabel!.text = text;
     }
     
     func joinComponentsByString(cards:[Card ], joinedString: String) -> String {
@@ -112,14 +112,14 @@ class CardGameViewController: UIViewController {
         super.viewDidLoad()
         self.game = CardMatchingGame (cardCount:self.cardCount, deck:self.deck )
         if game {self.game!.numberOfMatches = self.numberOfMatches}
-        self.resultsLabel.text = ""
+        self.resultsLabel!.text = ""
         
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        var grid1:Grid =  Grid (cellAspectRatio: 60.0/90.0, size: self.padView.bounds.size , minimumNumberOfCells: self.cardCount)
+        var grid1:Grid =  Grid (cellAspectRatio: 60.0/90.0, size: self.padView!.bounds.size , minimumNumberOfCells: self.cardCount)
         var columnCount:Int = grid1.columnCount
         
         var j:Int = 0
@@ -145,7 +145,7 @@ class CardGameViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        var grid1:Grid =  Grid (cellAspectRatio: 60.0/90.0, size: self.padView.bounds.size , minimumNumberOfCells: self.cardCount)
+        var grid1:Grid =  Grid (cellAspectRatio: 60.0/90.0, size: self.padView!.bounds.size , minimumNumberOfCells: self.cardCount)
         var columnCount:Int = grid1.columnCount
         
         var j:Int = 0
@@ -167,7 +167,7 @@ class CardGameViewController: UIViewController {
             newButton.frame = frame1
             newButton.setBackgroundImage(UIImage(named:"cardback"), forState: .Normal)
             newButton.addTarget(self, action: "touchCardButton:", forControlEvents: .TouchUpInside)
-            self.padView.addSubview(newButton)
+            self.padView!.addSubview(newButton)
             
             cardButtons +=  newButton
             j++;
