@@ -14,7 +14,7 @@ class Deck {
     var cards: [Card]
     
     func addCard (card: Card){
-        cards += card
+        cards.append(card)
     }
     
     init(){

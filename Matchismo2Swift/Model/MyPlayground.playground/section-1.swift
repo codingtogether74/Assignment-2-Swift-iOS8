@@ -37,7 +37,7 @@ class Grid {
     }
     var cellAspectRatio:CGFloat  {       // width divided by height (of each cell)
     didSet {
-        if abs(oldValue) !== abs(cellAspectRatio) {
+        if abs(oldValue) != abs(cellAspectRatio) {
             resolved = false
         }
         

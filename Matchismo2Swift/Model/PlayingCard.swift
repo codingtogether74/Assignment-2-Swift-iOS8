@@ -66,11 +66,11 @@ class PlayingCard: Card {
         {
             for var i = 0; i < otherCards.count; i++ {
                 var card1:PlayingCard? = otherCards[i] as? PlayingCard
-                if card1
+                if card1 != nil
                 {
                     for var  j = i+1; j < otherCards.count; j++ {
                         var card2:PlayingCard? = otherCards[j] as? PlayingCard
-                        if card2
+                        if card2 != nil
                         {
                             // check for the same suit
                             if card1!.suit == card2!.suit {

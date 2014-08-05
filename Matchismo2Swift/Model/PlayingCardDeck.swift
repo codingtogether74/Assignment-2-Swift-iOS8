@@ -9,7 +9,7 @@
 import Foundation
 // A class representing Playing card Deck.
 class PlayingCardDeck: Deck {
-    init ()
+    override init ()
     {
         super.init()
         for suit in PlayingCard.validSuits() {
@@ -17,7 +17,7 @@ class PlayingCardDeck: Deck {
                 var card:PlayingCard = PlayingCard(suit: suit,rank: rank)
                 card.rank = rank
                 card.suit = suit
-                self.cards += card
+                self.cards.append(card)
             }
         }
     }

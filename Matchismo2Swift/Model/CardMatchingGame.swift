@@ -24,8 +24,8 @@ class CardMatchingGame {
         self.matchedCards = [Card]()
         for i in 0..<cardCount {
             var card:Card? = deck.drawRandomCard()
-            if card {
-                cards += card!
+            if card != nil {
+                cards.append(card!)
             }
         }
     }
@@ -43,13 +43,13 @@ class CardMatchingGame {
     {
         var card:Card? = cardAtIndex(atIndex)
         self.faceUpCards = [Card]()
-        if card {
+        if card != nil {
             if (!card!.isMatched) {
                 if (card!.isChosen) {
                     card!.isChosen = false
                 } else {
                     // match against another cards
-                    faceUpCards += card!
+                    faceUpCards.append(card!)
                     self.lastFlipPoints = 0;
                     for otherCard:Card in self.cards {
                         if (otherCard.isChosen && !otherCard.isMatched) {

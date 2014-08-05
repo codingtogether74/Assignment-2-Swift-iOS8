@@ -26,7 +26,7 @@ class CardGameViewController: UIViewController {
     var cardCount:Int = 16
     var numberOfMatches:Int = 2
     
-    init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder!) {
         cardButtons = [UIButton] ()
         super.init(coder: aDecoder)
     }
@@ -52,10 +52,10 @@ class CardGameViewController: UIViewController {
             var cardIndex:Int? = find(self.cardButtons,cardButton)
 
 //            var cardIndex:Int? = self.cardButtons.indexOfElement (cardButton)
-            if cardIndex {
+            if cardIndex != nil{
                 var card:Card? = self.game!.cardAtIndex(cardIndex!)
                 //            print(card!.contents)
-                if card {
+                if card != nil {
                     cardButton.setTitle(titleForCard(card!), forState:UIControlState.Normal)
                     cardButton.setBackgroundImage(UIImage(named:backgroundImageForCard(card!)), forState:UIControlState.Normal)
                     cardButton.enabled = !card!.isMatched
@@ -111,7 +111,7 @@ class CardGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.game = CardMatchingGame (cardCount:self.cardCount, deck:self.deck )
-        if game {self.game!.numberOfMatches = self.numberOfMatches}
+        if (game != nil) {self.game!.numberOfMatches = self.numberOfMatches}
         self.resultsLabel!.text = ""
         
     }
@@ -169,7 +169,7 @@ class CardGameViewController: UIViewController {
             newButton.addTarget(self, action: "touchCardButton:", forControlEvents: .TouchUpInside)
             self.padView!.addSubview(newButton)
             
-            cardButtons +=  newButton
+            cardButtons.append(newButton)
             j++;
         }
     }
