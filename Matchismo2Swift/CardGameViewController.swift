@@ -26,7 +26,7 @@ class CardGameViewController: UIViewController {
     var cardCount:Int = 16
     var numberOfMatches:Int = 2
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         cardButtons = [UIButton] ()
         super.init(coder: aDecoder)
     }
