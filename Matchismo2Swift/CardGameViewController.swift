@@ -162,7 +162,7 @@ class CardGameViewController: UIViewController {
             var newButton = UIButton.buttonWithType(.Custom) as UIButton   //UIButton()
             
             newButton.setTitle(nil, forState: .Normal)
-            newButton.titleLabel.font = UIFont.systemFontOfSize(24)
+            newButton.titleLabel?.font = UIFont.systemFontOfSize(24)
             newButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
             newButton.frame = frame1
             newButton.setBackgroundImage(UIImage(named:"cardback"), forState: .Normal)

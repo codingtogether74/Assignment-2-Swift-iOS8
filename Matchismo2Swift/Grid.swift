@@ -209,7 +209,7 @@ class Grid {
     }
     
     
-    func centerOfCell(row:Int, column:Int) ->CGPoint
+    func centerOfCell(row:Int, column:Int) -> CGPoint
     {
         var center:CGPoint = CGPointMake(self.cellSize.width/2, self.cellSize.height/2);
         var fColumn:CGFloat = CGFloat(column)
@@ -219,7 +219,7 @@ class Grid {
         return center
     }
     
-    func frameOfCell(row:Int, column:Int) ->CGRect
+    func frameOfCell(row:Int, column:Int) -> CGRect
     {
         var frame:CGRect = CGRectMake(0, 0, self.cellSize.width, self.cellSize.height);
         var fColumn:CGFloat = CGFloat(column)
